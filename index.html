@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример страницы с Bootstrap</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Настройка шрифтов и цветов */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            background: linear-gradient(to bottom, lightblue, white);
+            padding: 20px; /* Дополнительный отступ для улучшения внешнего вида */-->
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand, .nav-link, .btn-music {
+            color: #ffffff !important;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: none;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn {
+            position: relative;
+        }
+
+        .custom-btn {
+            transform: scale(1); /* Увеличивает размер бейджа в два раза */
+            font-size: 1em; /* Можно увеличивать или уменьшать шрифт при необходимости */
+            /* Для смещения вправо можно использовать left или right */
+            left: 7%; /* Сдвинуть вправо на 7% от родительского контейнера */
+        }
+        .custom-btn1 {
+            transform: scale(1.3); /* Увеличение кнопки в 1.3 раза */
+            margin-left: 20px; /* Сдвиг влево, измените значение по необходимости */
+            left: 7%; /* Сдвинуть вправо на 7% от родительского контейнера */
+        }
+        .icon {
+            font-size: 1.2em; /* Размер иконок */
+        }
+
+        .social-icons {
+            margin-top: auto; /* Размещаем блок с иконками социальных сетей у нижнего края карточки */
+        }
+
+        .social-icons a {
+            margin: 0 28px; /* Отступы между иконками социальных сетей */
+            display: inline-block; /* Блочное отображение иконок */
+            width: 32px; /* Ширина иконки */
+            height: 32px; /* Высота иконки */
+        }
+
+        .social-icons img {
+            width: 100%; /* Устанавливаем ширину иконки */
+            height: 100%; /* Устанавливаем высоту иконки */
+            filter: grayscale(100%); /* Применение черно-белого фильтра к иконкам */
+            transition: filter 0.3s ease; /* Плавный переход фильтра при наведении */
+        }
+
+        .social-icons a:hover img {
+            filter: grayscale(0%); /* Возвращение цвета иконки при наведении *
+        }
+
+<!--        .mt-4 {-->
+<!--            background: linear-gradient(to bottom, #ffe4e1, #d3d3d3);-->
+<!--            padding: 20px; /* Дополнительный отступ для улучшения внешнего вида */-->
+<!--        }-->
+<!--        .accordion-section {-->
+<!--        background: linear-gradient(to bottom, #f8e8e8, #dcdcdc);-->
+<!--        background: linear-gradient(to bottom, #ffe4e1, #d3d3d3);-->
+<!--        padding: 20px; /* Дополнительный отступ для улучшения внешнего вида */-->
+<!--        }-->
+
+        .section4-custom {
+            background: linear-gradient(to right, lightgreen, lightyellow);
+        }
+
+        .footer-custom {
+            background: linear-gradient(to right, lightgreen, lightblue); /* Радиантный фон */
+            color: blue; /* Синий цвет текста */
+        }
+
+        .footer-custom a {
+            color: blue; /* Синий цвет текста для ссылок */
+        }
+
+        .footer-custom a:hover {
+            color: darkblue; /* Темно-синий цвет при наведении на ссылки */
+        }
+<!--          /* Изменяем цвет заголовков аккордеона */-->
+<!--        .card-header .btn-link {-->
+<!--            color: blue;-->
+<!--            text-decoration: none;-->
+<!--        }-->
+
+<!--        /* Изменяем цвет фона заголовков при наведении */-->
+<!--        .card-header .btn-link:hover {-->
+<!--            background-color: rgba(255, 0, 0, 0.1);-->
+<!--        }-->
+
+<!--        /* Изменяем цвет активного заголовка */-->
+<!--        .card-header .btn-link.collapsed {-->
+<!--            color: blue;-->
+<!--        }-->
+
+<!--        /* Изменяем цвет активного заголовка при открытии */-->
+<!--        .card-header .btn-link:not(.collapsed) {-->
+<!--            color: white;-->
+<!--            background-color: blue;-->
+<!--        }-->
+
+<!--        /* Изменяем цвет тела аккордеона */-->
+<!--        .card-body {-->
+<!--            border-top: 1px solid blue;-->
+<!--        }-->
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">НОВОСТИ МОСКОСКОГО РЕГИОНА</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Контакты</a>
+                    </li>
+                </ul>
+                <button class="btn btn-primary ml-4 btn-music" onclick="toggleMusic()">Фоновая музыка</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="container mt-4">
+        <!-- Первая секция: Слайдер -->
+        <section>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/RedSquere.jpg" class="d-block w-100" alt="Красная Площадь">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/Serg-Posad.jpg" class="d-block w-100" alt="Лавра в Сергиевом Посаде">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/Patriarch.jpg" class="d-block w-100" alt="Патриарх на выставке">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/Putin.jpg" class="d-block w-100" alt="Путин на могиле Неизвестному солдату">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/Shadaev.jpg" class="d-block w-100" alt="Шадаев на заседании Правительства МО">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/Army.jpg" class="d-block w-100" alt="Армия-2018">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Предыдущий</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Следующий</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Вторая секция: Карточки -->
+        <section class="row mt-4">
+            <!-- Карточка 1 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <img src="img/transport.jpeg" class="card-img-top" alt="Транспорт и инфраструктура">
+                    <div class="card-body">
+                        <h5 class="card-title">Транспорт и инфраструктура</h5>
+                        <p class="card-text"><strong>Московский регион</strong> - это место значительных обновлений в транспортной инфраструктуре, будь то новые станции метро, строительство дорожных развязок или развитие общественного транспорта. Запуск новых маршрутов Московских центральных диаметров (МЦД), а также открытие новых станций метро всегда привлекает внимание общественности</p>
+                        <!-- Кнопка "Подробнее" с модальным окном -->
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#detailModal">Подробнее</button>
+                        <p>   </p>
+                        <!-- Проигрывание MP3-трека -->
+                        <audio controls>
+                            <source src="audio/transport.mp3" type="audio/mpeg">
+                            Ваш браузер не поддерживает проигрывание аудио.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+            <!-- Карточка 2 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+		<div class="card">
+                    <img src="img/culture.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Культурные события</h5>
+                        <p class="card-text"><strong>Москва и область</strong> известны своим богатым культурным календарем. Это и крупные выставки в Третьяковской галерее или Музее изобразительных искусств имени Пушкина, и театральные премьеры в Большом театре, МХАТ им. Горького, и фестивали на ВДНХ, и крупнейшие культурно-развлекательные массовые мероприятия в Москве и Подмосковье.</p>
+                        <!-- Кнопка "Подробнее" с модальным окном -->
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#detailModal1">Подробнее</button>
+                        <p>   </p>
+                        <!-- Проигрывание MP3-трека -->
+                        <audio controls>
+                            <source src="audio/kulture.mp3" type="audio/mpeg">
+                            Ваш браузер не поддерживает проигрывание аудио.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+            <!-- Карточка 3 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <img src="img/ecology.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Экологические инициативы</h5>
+                        <p class="card-text">В последние годы в <strong>Московском регионе</strong> органами государственной власти Москвы и Московской области активно ведется работа по улучшению экологической ситуации. Это и развитие городских парков, природных зон и других рекреационных пространств, включая и посадку деревьев, и инициативы по улучшению качества воздуха и воды.</p>
+                        <!-- Кнопка "Подробнее" с модальным окном -->
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#detailModal2">Подробнее</button>
+                        <p>   </p>
+                        <!-- Проигрывание MP3-трека -->
+                        <audio controls>
+                            <source src="audio/ecology.mp3" type="audio/mpeg">
+                            Ваш браузер не поддерживает проигрывание аудио.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Модальное окно -->
+        <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailModalLabel"><strong>Транспорт и инфраструктура Московского региона</strong></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Москва и Московская область продолжают активно развивать транспортную инфраструктуру, чтобы улучшить транспортную доступность и снизить нагрузку на существующую систему. Вот ключевые аспекты, которые сегодня входят в повестку дня:</p>
+                        <p>1. <strong>Московские центральные диаметры (МЦД)</strong>: Это проект, который интегрирует железнодорожные линии с системой общественного транспорта Москвы. МЦД позволяют пассажирам перемещаться между городскими и пригородными районами без необходимости пересадок на центральные вокзалы. Запуск новых маршрутов МЦД помогает разгрузить метро и улучшить транспортную доступность для жителей пригородов.</p>
+                        <p>2. <strong>Расширение метро</strong>: Москва активно строит новые линии и станции метро. Это включает как продление существующих линий, так и создание новых радиальных и кольцевых маршрутов. Открытие новых станций значительно улучшает транспортную доступность для районов, которые ранее обслуживались недостаточно.</p>
+<p>3. <strong>Развитие дорожной инфраструктуры</strong>: Важной частью транспортной политики является строительство новых шоссе, развязок и реконструкция существующих дорог. Это направлено на снижение пробок и улучшение условий для автомобилистов. Также важной частью является создание выделенных полос для общественного транспорта, что позволяет автобусам и троллейбусам передвигаться быстрее и эффективнее.</p>
+<p>4. <strong>Интеграция транспортных систем</strong>: В Москве уделяется внимание интеграции различных видов транспорта. Это включает в себя создание транспортно-пересадочных узлов, где пассажиры могут легко пересаживаться с одного вида транспорта на другой, а также внедрение единой билетной системы, такой как «Тройка», которая упрощает оплату проезда.</p>
+<p>5. <strong>Развитие электротранспорта</strong>: В последние годы в Москве наблюдается рост использования экологически чистого транспорта, такого как электробусы. Это часть стратегии по снижению уровня загрязнения воздуха и улучшению экологической ситуации в городе.</p>
+<p>Эти проекты направлены на то, чтобы сделать транспортную систему Москвы более современной, эффективной и удобной для жителей и гостей города.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+		    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Модальное окно -->
+        <div class="modal fade" id="detailModal1" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailModalLabel1"><strong>Культурные события Московского региона</strong></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Москва и Московская область обладают насыщенной и разнообразной культурной жизнью, которая привлекает как жителей, так и гостей столицы. Вот более детальный обзор культурных событий, которые проходят в этом регионе:</p>
+<p>1. <strong>Выставки и музеи</strong>:</p>
+<p>   - <strong>Третьяковская галерея</strong>: Здесь регулярно проходят выставки, посвященные как классическому, так и современному искусству. Коллекция галереи включает в себя произведения выдающихся русских художников.</p>
+<p>   - <strong>Государственный музей изобразительных искусств имени А.С. Пушкина</strong>: Этот музей известен своими постоянными экспозициями, а также временными выставками, привозящими работы мировых мастеров.</p>
+<p>2. <strong>Театры</strong>:</p>
+<p>   - <strong>Большой театр</strong>: Один из самых знаменитых театров мира, где можно насладиться оперой и балетом высочайшего уровня.</p>
+<p>   - <strong>МХАТ им. Горького</strong>: Театр с богатой историей, который постоянно ставит как классические, так и современные пьесы.</p>
+<p>   - <strong>Московский театр оперетты, Театр на Таганке и другие</strong>: Каждый из них предлагает уникальные постановки и репертуар.</p>
+<p>3. <strong>Фестивали и массовые мероприятия</strong>:</p>
+<p>   - <strong>ВДНХ</strong>: Это не только выставочный центр, но и место проведения разнообразных фестивалей, включая гастрономические, культурные и образовательные мероприятия.</p>
+<p>   - <strong>Московский международный кинофестиваль</strong>*: Один из старейших кинофестивалей в мире, который привлекает кинематографистов и зрителей со всего мира.</p>
+<p>   - <strong>Музыкальные фестивали и концерты</strong>: Такие мероприятия, как "Usadba Jazz" или "Park Live", позволяют насладиться выступлениями как отечественных, так и зарубежных артистов.</p>
+<p>4. <strong>Культурные события в Подмосковье</strong>:</p>
+<p>   - <strong>Этномир</strong>: Культурно-образовательный центр, предлагающий посетителям погрузиться в атмосферу разных культур и народов.</p>
+<p>   - <strong>Усадьбы и исторические места</strong>: Многие из них становятся площадками для проведения фестивалей и концертов, таких как "Усадьба Jazz" в Архангельском.</p>
+<p>Эти мероприятия и площадки делают Московский регион одним из ведущих культурных центров мира, привлекая множество туристов и создавая богатую культурную атмосферу для местных жителей.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+		    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Модальное окно -->
+        <div class="modal fade" id="detailModal2" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailModalLabel2"><strong>Экологические инициативы Московского региона</strong></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>В последние годы в <strong>Московском регионе</strong> наблюдается активизация усилий по улучшению экологической ситуации. Это обусловлено как необходимостью сохранения окружающей среды, так и стремлением создать комфортные условия для жизни горожан. Рассмотрим более подробно ключевые направления экологических инициатив в Москве и Московской области:</p>
+<p>1. <strong>Развитие городских парков и природных зон</strong>:</p>
+<p>   - <strong>Создание новых парков и благоустройство существующих</strong>: В Москве и Подмосковье активно реализуются проекты по созданию новых парков и реконструкции уже существующих. Это не только улучшает качество жизни в городе, но и способствует сохранению биологического разнообразия.</p>
+<p>   - <strong>Зеленые коридоры</strong>: В рамках этой инициативы предусматривается создание соединяющих зеленых зон, которые обеспечивают миграцию животных и растений, а также служат местами отдыха для людей.</p>
+<p>2. <strong>Посадка деревьев и озеленение</strong>:</p>
+<p>   - <strong>Массовые акции по посадке деревьев</strong>: Ежегодно проводятся акции, такие как «Миллион деревьев», в ходе которых высаживаются десятки тысяч саженцев по всему региону.</p>
+<p>   - <strong>Озеленение дворов и общественных пространств</strong>: В рамках городских программ активно озеленяются дворы, улицы и общественные пространства, что способствует улучшению микроклимата и снижению уровня загрязнения воздуха.</p>
+<p>3. <strong>Улучшение качества воздуха и воды</strong>:</p>
+<p>   - <strong>Мониторинг и контроль качества воздуха</strong>: Устанавливаются новые станции мониторинга, данные которых помогают оперативно реагировать на изменения в качестве воздуха и принимать меры по его улучшению.</p>
+<p>   - <strong>Очистка и восстановление водоемов</strong>: Ведутся работы по очистке рек и озер, а также восстановлению их экосистем. Это включает в себя как технические мероприятия, так и биологические методы очистки.</p>
+<p>4. <strong>Развитие экологического транспорта</strong>:</p>
+<p>   - <strong>Переход на экологически чистый общественный транспорт</strong>: В городе активно внедряются электробусы и гибридные транспортные средства, что способствует снижению выбросов вредных веществ.</p>
+<p>   - <strong>Развитие велосипедной инфраструктуры</strong>: Создаются новые велосипедные дорожки и парковки, что стимулирует горожан использовать велосипеды как экологичную альтернативу автомобилям.</p>
+<p>5. <strong>Образовательные и просветительские инициативы</strong>:</p>
+<p>   - <strong>Экологическое образование</strong>: В школах и детских садах проводятся уроки и мероприятия, направленные на формирование у детей экологической культуры и ответственного отношения к природе.</p>
+<p>   - <strong>Информационные кампании</strong>: Проводятся акции и мероприятия, направленные на повышение осведомленности населения о важности экологического поведения и участия в природоохранных инициативах.</p>
+<p>Эти меры и программы подчеркивают стремление Московского региона к устойчивому развитию и улучшению качества жизни, что является важным шагом на пути к экологическому благополучию.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+		    </div>
+                </div>
+            </div>
+        </div>
+<!--        <button type="button" class="btn btn-success position-relative custom-btn">-->
+<!--            <strong>Песни о Москве</strong>-->
+<!--            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">-->
+<!--                12-->
+<!--                <span class="visually-hidden">треков</span>-->
+<!--            </span>-->
+<!--        </button>-->
+        <button type="button" class="btn btn-success position-relative custom-btn1">
+            <strong>Песни о Москве</strong>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                12
+                <span class="visually-hidden">треков</span>
+            </span>
+        </button>
+
+<!--        <span class="badge-container position-relative">-->
+<!--            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger custom-badge">-->
+<!--                12-->
+<!--                <span class="visually-hidden">треков</span>-->
+<!--            </span>-->
+<!--        </span>-->
+
+        <!-- Третья секция: Аккордеон -->
+        <section class="mt-4">
+            <div class="accordion accordion-flush" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <strong>В Москве идут дожди</strong> (музыка и слова Ирэны Рашри)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <!-- Проигрывание MP3-трека -->
+                            <audio controls>
+                                <source src="audio/Сергей_Орлов-Белый-В_Москве_идут_дожди.mp3" type="audio/mpeg">
+                                Ваш браузер не поддерживает проигрывание аудио.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <strong>Влюбленная Москва</strong> (музыка и слова Сергея Сасы)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <!-- Проигрывание MP3-трека -->
+                            <audio controls>
+                                <source src="audio/Сергей_Орлов-Белый-Влюбленная_Москва.mp3" type="audio/mpeg">
+                                Ваш браузер не поддерживает проигрывание аудио.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <strong>Гимн МГУУ Правительства Москвы</strong> (музыка и слова МГУУ)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <!-- Проигрывание MP3-трека -->
+                            <audio controls>
+                                <source src="audio/Сергей_Орлов-Белый-Гимн_МГУУ_Правительства_Москвы.mp3" type="audio/mpeg">
+                                Ваш браузер не поддерживает проигрывание аудио.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <strong>Далека</strong> (музыка и слова Эдуарда Изместьева)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <!-- Проигрывание MP3-трека -->
+                            <audio controls>
+                                <source src="audio/Сергей_Орлов-Белый-Далека.mp3" type="audio/mpeg">
+                                Ваш браузер не поддерживает проигрывание аудио.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFive">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFivee">
+                                <strong>День как день</strong> (музыка и слова Сергея Мудрова)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <!-- Проигрывание MP3-трека -->
+                            <audio controls>
+                                <source src="audio/Сергей_Орлов-Белый-День_как_день.mp3" type="audio/mpeg">
+                                Ваш браузер не поддерживает проигрывание аудио.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingSix">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapsesix">
+                                <strong>Золотая осень (club_edit)</strong> (музыка Макса Верховского, слова Евгения Дадова)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <!-- Проигрывание MP3-трека -->
+                            <audio controls>
+                                <source src="audio/Сергей_Орлов-Белый-Золотая_осень_(club_edit).mp3" type="audio/mpeg">
+                                Ваш браузер не поддерживает проигрывание аудио.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingSeven">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                <strong>Курортный роман</strong> (музыка и слова Сергея Воронкова и Владимира Бойко)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <!-- Проигрывание MP3-трека -->
+                            <audio controls>
+                                <source src="audio/Сергей_Орлов-Белый-Курортный_роман.mp3" type="audio/mpeg">
+                                Ваш браузер не поддерживает проигрывание аудио.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingEight">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                <strong>Маленькое кафе</strong> (музыка и слова Ильи Снегова)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <!-- Проигрывание MP3-трека -->
+                            <audio controls>
+                                <source src="audio/Сергей_Орлов-Белый-Маленькое_кафе.mp3" type="audio/mpeg">
+                                Ваш браузер не поддерживает проигрывание аудио.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingNine">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                <strong>Ничего не бойся</strong> (музыка и слова Эдуарда Изместьева)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <!-- Проигрывание MP3-трека -->
+                            <audio controls>
+                                <source src="audio/Сергей_Орлов-Белый-Ничего_не_бойся.mp3" type="audio/mpeg">
+                                Ваш браузер не поддерживает проигрывание аудио.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTen">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                                <strong>Одна (dance_mix)</strong> (музыка и слова Сергея Мудрова)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <!-- Проигрывание MP3-трека -->
+                            <audio controls>
+                                <source src="audio/Сергей_Орлов-Белый-Одна_(dance_mix).mp3" type="audio/mpeg">
+                                Ваш браузер не поддерживает проигрывание аудио.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingEleven">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                                <strong>Речной вокзал</strong> (музыка и слова Сергея Воронкова)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <!-- Проигрывание MP3-трека -->
+                            <audio controls>
+                                <source src="audio/Сергей_Орлов-Белый-Речной_вокзал.mp3" type="audio/mpeg">
+                                Ваш браузер не поддерживает проигрывание аудио.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwelve">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                                <strong>Такси</strong> (музыка и слова Эдуарда Изместьева)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <!-- Проигрывание MP3-трека -->
+                            <audio controls>
+                                <source src="audio/Сергей_Орлов-Белый-Такси.mp3" type="audio/mpeg">
+                                Ваш браузер не поддерживает проигрывание аудио.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <h1>    </h1>
+        <p>    </p>
+        <p>    </p>
+        <button type="button" class="btn btn-success position-relative custom-btn1">
+            <strong>Видео о Москве</strong>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                4
+                <span class="visually-hidden">видеоролика</span>
+            </span>
+        </button>
+
+        <!-- Четвертая секция: Аккордеон -->
+        <section class="section4-custom mt-4">
+            <div class="accordion" id="accordionExample1">
+                <div class="card">
+                    <div class="card-header" id="headingOne2">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
+                                <strong>Топ-10 мест в Москве, которые должен посетить каждый</strong>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne2" class="collapse" aria-labelledby="headingOne2" data-parent="#accordionExample1">
+                        <div class="card-body">
+                            <!-- Проигрывание видео -->
+                            <video controls>
+                                <source src="video/1.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает проигрывание видео.
+                            </video>
+<!--                            <iframe width="560" height="315" src="https://rutube.ru/video/2615c4033b56cd8f934744f00387276c/" frameborder="0" allowfullscreen></iframe>-->
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo2">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
+                                <strong>Достопримечательности Москвы</strong> (от юного москвофила Орлова Павла)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo2" data-parent="#accordionExample1">
+                        <div class="card-body">
+                            <!-- Проигрывание видео -->
+                            <video controls>
+                                <source src="video/2.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает проигрывание видео.
+
+                    </video>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree2">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2">
+                                <strong>8 высоток Москвы</strong>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree2" class="collapse" aria-labelledby="headingThree2" data-parent="#accordionExample1">
+                        <div class="card-body">
+                            <!-- Проигрывание видео -->
+                            <video controls>
+                                <source src="video/3.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает проигрывание видео.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFour2">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour2" aria-expanded="false" aria-controls="collapseFour2">
+                                <strong>Прогулка по Москве за два дня</strong> (от канала "Ян Буян)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFour2" class="collapse" aria-labelledby="headingFour2" data-parent="#accordionExample1">
+                        <div class="card-body">
+                            <!-- Проигрывание видео -->
+                            <video controls>
+                                <source src="video/4.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает проигрывание видео.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Футер -->
+<!--    <footer class="bg-light text-center text-lg-start mt-4">-->
+<!--        <div class="container p-4">-->
+<!--            &lt;!&ndash; Контактная информация &ndash;&gt;-->
+<!--            <section class="mb-4">-->
+<!--                <p><strong>Контакты: info@mos.ru, info@mosreg.ru | +7 (123) 456-78-90</strong></p>-->
+<!--            </section>-->
+
+<!--            &lt;!&ndash; Социальные сети &ndash;&gt;-->
+<!--            <section class="mb-4">-->
+<!--                <h6><strong>Социальные сети</strong></h6>-->
+<!--                <div class="social-icons">-->
+<!--                    &lt;!&ndash; Ссылка на профиль в Telegram &ndash;&gt;-->
+<!--                    <a href="https://t.me/mos_sobyanin" target="_blank"><img src="icon/telegram.png" alt="Telegram"></a>-->
+<!--                    &lt;!&ndash; Ссылка на профиль в ВКонтакте &ndash;&gt;-->
+<!--                    <a href="https://vk.com/mossobyanin" target="_blank"><img src="icon/vk.png" alt="ВКонтакте"></a>-->
+<!--                    &lt;!&ndash; Ссылка на профиль в RUTUBE &ndash;&gt;-->
+<!--                    <a href="https://rutube.ru/channel/25589344" target="_blank"><img src="icon/rutube.png" alt="RUTUBE"></a>-->
+<!--                </div>-->
+<!--                <a href="https://facebook.com/blogsobyanin/?ysclid=m24qv7e631900679777" class="btn btn-outline-primary btn-floating m-1" role="button"><i class="fab fa-facebook-f"></i> Facebook</a>-->
+<!--                <a href="https://x.com/MosSobyanin" class="btn btn-outline-primary btn-floating m-1" role="button"><i class="fab fa-twitter"></i> Twitter</a>-->
+<!--                <a href="https://instagram.com/MosSobyanin/?hl=ru&ysclid=m24qwkj4pg364501675" class="btn btn-outline-primary btn-floating m-1" role="button"><i class="fab fa-instagram"></i> Instagram</a>-->
+<!--            </section>-->
+<!--            &lt;!&ndash; Секция с соцсетями &ndash;&gt;-->
+<!--        </div>-->
+<!--    </footer>-->
+
+    <footer class="footer-custom text-center text-lg-start mt-4">
+        <div class="container p-4">
+            <!-- Контактная информация -->
+            <section class="mb-4">
+                <p><strong>Контакты: info@mos.ru, info@mosreg.ru | +7 (123) 456-78-90</strong></p>
+            </section>
+
+            <!-- Социальные сети -->
+            <section class="mb-4">
+                <h6><strong>Социальные сети</strong></h6>
+                <div class="social-icons">
+                    <!-- Ссылка на профиль в Telegram -->
+                    <a href="https://t.me/mos_sobyanin" target="_blank"><img src="icon/telegram.png" alt="Telegram"></a>
+                    <!-- Ссылка на профиль в ВКонтакте -->
+                    <a href="https://vk.com/mossobyanin" target="_blank"><img src="icon/vk.png" alt="ВКонтакте"></a>
+                    <!-- Ссылка на профиль в RUTUBE -->
+                    <a href="https://rutube.ru/channel/25589344" target="_blank"><img src="icon/rutube.png" alt="RUTUBE"></a>
+                </div>
+                <a href="https://facebook.com/blogsobyanin/?ysclid=m24qv7e631900679777" class="btn btn-outline-primary btn-floating m-1" role="button"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="https://x.com/MosSobyanin" class="btn btn-outline-primary btn-floating m-1" role="button"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="https://instagram.com/MosSobyanin/?hl=ru&ysclid=m24qwkj4pg364501675" class="btn btn-outline-primary btn-floating m-1" role="button"><i class="fab fa-instagram"></i> Instagram</a>
+            </section>
+            <!-- Секция с соцсетями -->
+        </div>
+    </footer>
+    <!-- Подключение Bootstrap JS и jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Функция для управления фоном музыки
+        let isMusicPlaying = false;
+        const audio = new Audio('audio/Romance---.mp3');
+
+        function toggleMusic() {
+            if (isMusicPlaying) {
+                audio.pause();
+            } else {
+                audio.play();
+            }
+            isMusicPlaying = !isMusicPlaying;
+        }
+    </script>
+</body>
+</html>
